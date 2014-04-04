@@ -1,17 +1,17 @@
-# Spark Jobserver Experiments
+# Spark Job Server Examples
 
-Experiments with [Apache Spark](http://spark.apache.org) and [Ooyala's Spark Job Server](https://github.com/ooyala/spark-jobserver).
+Experiments with [Apache Spark](http://spark.apache.org) and recently-outsourced [Ooyala's Spark Job Server](https://github.com/ooyala/spark-jobserver).
 
-## Reasons for Ooyala's Spark Job Server:
+## Reasons for Spark Job Server:
 
 * Allows you to share Spark Contexts between jobs (!!);
 * Provides a RESTful API to manage jobs, contexts and jars.
 
 ## Goal
 
-Let's find out the Top 5 Stack Overflow users (by sheer reputation!)
+Let's find out the Top 5 Stack Overflow users (by sheer reputation!).
 
-In this example there are 3 implementations of `spark.jobserver.SparkJob`: their goal is to get the top 5 users out of the `users` RDD and they describe 3 functionalities provided by `spark.jobserver.NamedRddSupport`:
+In this example there are 3 implementations of `spark.jobserver.SparkJob`: their common goal is to get the top 5 users out of the `users` RDD but they have different behaviours:
 
 * GetOrCreateUsers: tries to get the RDD **or creates it**, if it doesn't exist;
 * GetOrFailUsers: tries to get the RDD **or throws an exception**, if it doesn't exist;
@@ -38,14 +38,14 @@ This will start a background server process which will run until you close sbt.
 
 ### Clone this project and package it
 
-    $ git clone https://github.com/fedragon/spark-jobserver-example
+    $ git clone https://github.com/fedragon/spark-jobserver-examples
     $ sbt package
 
-## Get your hands dirty with Ooyala's Spark Jobserver
+## Get your hands dirty with Spark Jobserver
 
 ### Deploy our jar
 
-    curl --data-binary @target/scala-2.10/spark-jobserver-example_2.10-1.0.0.jar localhost:8090/jars/sparking
+    curl --data-binary @target/scala-2.10/spark-jobserver-examples_2.10-1.0.0.jar localhost:8090/jars/sparking
 
     curl 'localhost:8090/jars'
 
@@ -95,3 +95,7 @@ Check the job status/response as described above: once the job completes, it wil
     curl 'localhost:8090/jobs'
 
 You should now see a big difference between the time it took the first job (= the one that actually created the `users` RDD) to complete and the other jobs' times.
+
+## Where to go next
+
+This example only shows a few features from Ooyala's Spark Job Server so I recommend you to go [here!](https://github.com/ooyala/spark-jobserver/blob/master/README.md)
