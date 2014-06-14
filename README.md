@@ -69,18 +69,17 @@ In alternative, you can find all the jobs using:
 
     curl 'localhost:8090/jobs'
 
-
 #### 1. GetOrFailUsers
 
     curl -X POST 'localhost:8090/jobs?appName=sparking&classPath=sparking.jobserver.GetOrFailUsers&context=users-context'
 
-Check the job status/response as described above: if you are following this README and you are running this job before any other, it will fail (as intended) because the `users` RDD does not exist yet.
+Check the job status/response as described in step `0`: if you are following this README and you are running this job before any other, it will fail (as intended) because the `users` RDD does not exist yet.
 
 #### 2. GetOrCreateUsers
 
     curl -X POST 'localhost:8090/jobs?appName=sparking&classPath=sparking.jobserver.GetOrCreateUsers&context=users-context'
 
-Check the job status/response as described above: once the job completes, the response will contain the top 5 users.
+Check the job status/response as described in step `0`: once the job completes, the response will contain the top 5 users.
 
 **Note:** now that the `users` RDD has been created and cached, you can re-run GetOrFailUsers and see it complete successfully (and fast)!
 
@@ -88,7 +87,7 @@ Check the job status/response as described above: once the job completes, the re
 
     curl -X POST 'localhost:8090/jobs?appName=sparking&classPath=sparking.jobserver.GetAndUpdateUsers&context=users-context'
 
-Check the job status/response as described above: once the job completes, it will return the top 5 users among those who signed up in the last 100 days.
+Check the job status/response as described in step `0`: once the job completes, it will return the top 5 users among those who signed up in the last 100 days.
 
 ### Check jobs' completion times
 
@@ -99,3 +98,4 @@ You should now see a big difference between the time it took the first job (= th
 ## Where to go next
 
 This example only shows a few features from Ooyala's Spark Job Server so I recommend you to go [here!](https://github.com/ooyala/spark-jobserver/blob/master/README.md)
+
