@@ -7,7 +7,7 @@ scalacOptions ++= Seq("-deprecation")
 lazy val buildSettings = Seq(
   version := "0.1-SNAPSHOT",
   organization := "com.github.fedragon.sparking.jobserver",
-  scalaVersion := "2.10.3"
+  scalaVersion := "2.10.4"
 )
 
 resolvers += "Ooyala Bintray" at "http://dl.bintray.com/ooyala/maven"
@@ -15,7 +15,7 @@ resolvers += "Ooyala Bintray" at "http://dl.bintray.com/ooyala/maven"
 libraryDependencies ++= Seq (
   "joda-time" % "joda-time" % "2.3",
   "org.joda" % "joda-convert" % "1.2",
-  ("org.apache.spark" %% "spark-core" % "0.9.0-incubating").
+  ("org.apache.spark" %% "spark-core" % "1.0.0").
     exclude("org.mortbay.jetty", "servlet-api").
     exclude("commons-beanutils", "commons-beanutils-core").
     exclude("commons-collections", "commons-collections").
