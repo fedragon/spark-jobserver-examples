@@ -10,6 +10,8 @@ lazy val buildSettings = Seq(
   scalaVersion := "2.10.3"
 )
 
+resolvers += "Ooyala Bintray" at "http://dl.bintray.com/ooyala/maven"
+
 libraryDependencies ++= Seq (
   "joda-time" % "joda-time" % "2.3",
   "org.joda" % "joda-convert" % "1.2",
@@ -20,5 +22,5 @@ libraryDependencies ++= Seq (
     exclude("com.esotericsoftware.minlog", "minlog").
     exclude("junit", "junit").
     exclude("org.slf4j", "log4j12"),
-  "ooyala.cnd" % "job-server" % "0.3.0"
+  "ooyala.cnd" % "job-server" % "0.3.1" % "provided"
 )
