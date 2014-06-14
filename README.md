@@ -61,7 +61,7 @@ This will start a background server process which will run until you close sbt.
 
 To find a single job you can use:
 
-    curl 'localhost:8090/jobs/<job-id>''
+    curl 'localhost:8090/jobs/<job-id>'
 
 the actual `job-id` can be found in the response you get when you run the job (see below).
 
