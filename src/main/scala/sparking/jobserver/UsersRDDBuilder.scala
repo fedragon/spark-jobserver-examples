@@ -16,5 +16,5 @@ trait UsersRDDBuilder {
       }.
       sortByKey(ascending = false)
   }
-
 }
+

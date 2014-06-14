@@ -19,3 +19,4 @@ object User {
     case _ => None
   }
 }
+

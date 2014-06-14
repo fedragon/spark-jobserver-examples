@@ -1,16 +1,15 @@
 package sparking
 package jobserver
 
+import com.typesafe.config.Config
 import org.apache.spark.SparkContext, SparkContext._
 import org.apache.spark.rdd.RDD
 
-import spark.jobserver._
-import com.typesafe.config.Config
-
-trait UsersSparkJob extends SparkJob with UsersRDDBuilder with NamedRddSupport {
+trait UsersSparkJob extends spark.jobserver.SparkJob with spark.jobserver.NamedRddSupport with UsersRDDBuilder {
   val rddName = "users"
 
-  def validate(sc: SparkContext, config: Config): SparkJobValidation = SparkJobValid
+  // Validation is not really needed in this example
+  def validate(sc: SparkContext, config: Config): spark.jobserver.SparkJobValidation = spark.jobserver.SparkJobValid
 }
 
 object GetOrCreateUsers extends UsersSparkJob {
@@ -47,6 +46,6 @@ object GetAndUpdateUsers extends UsersSparkJob {
 
       newcomers.take(5)
     }.getOrElse(throw new IllegalStateException(s"RDD [$rddName] does not exist"))
-
   }
 }
+
